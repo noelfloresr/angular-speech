@@ -1,0 +1,41 @@
+
+
+body{
+	background-color: $dark-blue;
+	color: $font-color;
+	padding: 50px;
+}
+
+a{
+	border-radius: 5px;
+	&:hover{
+		text-decoration: none;	
+		color: white;
+	}
+}
+
+hr{
+	border-top:1px solid #434857;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+	li{
+		list-style: none;
+	}
+}
+
+.speech-keywords{
+	li{
+		display: inline-block;
+	}
+}
+
+.tag{
+	background-color: gray;
+	color: white;
+	padding: 5px 10px;
+	border-radius: 10px;
+	font-size: 12px;
+}

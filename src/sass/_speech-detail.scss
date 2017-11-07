@@ -1,0 +1,35 @@
+
+article.speech-detail{
+	header{
+		h1{
+
+		}
+		.speech-author{
+			display: block;
+		}
+		.speech-date{
+			display: block;
+		}	
+	}
+	.content{
+		margin-top: 20px;
+	}
+	footer{
+		.speech-actions{
+			ul{
+				li{
+					display: inline-block;
+					padding-left: 10px;
+				}
+			}
+		}	
+		.add-speech{
+			margin-top: 20px;
+			a{
+				color: $sky-blue;	
+			}
+		}
+	}
+	
+}
+
