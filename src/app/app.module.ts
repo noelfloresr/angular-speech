@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule }    from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+//Services
+import { SpeechService } from './speeches/shared-data/speech.service';
 
 //Firebase
 import { AngularFireModule } from 'angularfire2';
@@ -15,6 +19,8 @@ import { SpeechListComponent } from './speeches/speech-list/speech-list.componen
 import { SpeechDetailComponent } from './speeches/speech-detail/speech-detail.component';
 import { SpeechFormComponent } from './speeches/speech-form/speech-form.component';
 
+import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -26,11 +32,13 @@ import { SpeechFormComponent } from './speeches/speech-form/speech-form.componen
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
     AngularFireDatabaseModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [SpeechService], //in order to avoid add it into each component
   bootstrap: [AppComponent]
 })
 export class AppModule { }

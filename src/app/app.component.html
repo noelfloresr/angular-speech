@@ -5,13 +5,17 @@
         <div class="logo">A logo here</div>
       </div>
       <div class="col-sm-6">
-        <ul class="speech-navbar">
-          <li class="active"><a href="#">List of speeches</a></li>
-          <li><a href="#">Add speech</a></li>
-          <li><a href="#">List of authors</a></li>
-          <li><a href="#">Add an author</a></li>
-          <li><a href="#">Categories</a></li>
-        </ul>
+        <nav>
+          <ul class="speech-navbar">
+            <li class="active">
+              <a routerLink="/list">List of speeches</a>
+            </li>
+            <li><a routerLink="/add">Add speech</a></li>
+            <li><a href="#">List of authors</a></li>
+            <li><a href="#">Add an author</a></li>
+            <li><a href="#">Categories</a></li>
+          </ul>  
+        </nav>
       </div>
     </div>
   </div>
@@ -24,20 +28,24 @@
         <aside class="d-none d-md-block">
             <h4>Speech Navigation</h4>
             <hr>
-            <ul class="speech-navbar">
-              <li class="active"><a href="#">Latest speeches</a></li>
-              <li><a href="#">Add speech</a></li>
-              <li><a href="#">List of authors</a></li>
-              <li><a href="#">Add an author</a></li>
-              <li><a href="#">Categories</a></li>
-            </ul>
+            <nav>
+              <ul class="speech-navbar">
+                <li class="active">
+                  <a routerLink="/list">List of speeches</a>
+                </li>
+                <li><a routerLink="/add">Add speech</a></li>
+                <li><a href="#">List of authors</a></li>
+                <li><a href="#">Add an author</a></li>
+                <li><a href="#">Categories</a></li>
+              </ul>  
+            </nav>
         </aside>
       </div>
       <div class="col-md-9">
         <main>
-          <!-- here goese dynamic components 
-          <app-speech-list></app-speech-list> -->
-          <app-speech-form></app-speech-form>
+          <!-- here goese dynamic components through routes -->
+          <router-outlet></router-outlet>
+          
         </main>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpeechService } from '../shared-data/speech.service';
 
 @Component({
   selector: 'app-speech-detail',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpeechDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private speechService: SpeechService) { }
 
   ngOnInit() {
   }
