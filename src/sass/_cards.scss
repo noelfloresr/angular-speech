@@ -1,0 +1,27 @@
+
+.card{
+    background: none;
+    border:none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    img{
+        // border-radius: 50%;
+        z-index: 1;
+    }
+    .card-body{
+        background: white;
+        padding-top: 20px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        color: #333;
+        h4{
+            color: #045E80;
+        }
+        .read-speech{
+            color: $sky-blue;
+            &:hover{
+                color: darken(#045E80, 10%);
+            }
+        }
+    }
+}

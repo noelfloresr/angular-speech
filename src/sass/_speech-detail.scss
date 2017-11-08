@@ -4,12 +4,7 @@ article.speech-detail{
 		h1{
 
 		}
-		.speech-author{
-			display: block;
-		}
-		.speech-date{
-			display: block;
-		}	
+			
 	}
 	.content{
 		margin-top: 20px;
@@ -31,5 +26,13 @@ article.speech-detail{
 		}
 	}
 	
+}
+
+.speech-author{
+	display: block;
+}
+.speech-date{
+	display: block;
+	margin-bottom: 10px;
 }
 

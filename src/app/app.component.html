@@ -1,51 +1,46 @@
+<header class="d-block d-md-none">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="logo">A logo here</div>
+      </div>
+      <div class="col-sm-6">
+        <ul class="speech-navbar">
+          <li class="active"><a href="#">List of speeches</a></li>
+          <li><a href="#">Add speech</a></li>
+          <li><a href="#">List of authors</a></li>
+          <li><a href="#">Add an author</a></li>
+          <li><a href="#">Categories</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
 
 <div class="dashboard">
   <div class="container">
     <div class="row">
-      <div class="col-3">
-        <aside>
-          <h4>Speech Navigation</h4>
-          <hr>
-          <ul class="speech-navbar">
-            <li class="active"><a href="#">Speech 1</a></li>
-            <li><a href="#">Speech 2</a></li>
-            <li><a href="#">Speech 3</a></li>
-            <li><a href="#">Speech 4</a></li>
-          </ul>
+      <div class="col-md-3">
+        <aside class="d-none d-md-block">
+            <h4>Speech Navigation</h4>
+            <hr>
+            <ul class="speech-navbar">
+              <li class="active"><a href="#">Latest speeches</a></li>
+              <li><a href="#">Add speech</a></li>
+              <li><a href="#">List of authors</a></li>
+              <li><a href="#">Add an author</a></li>
+              <li><a href="#">Categories</a></li>
+            </ul>
         </aside>
       </div>
-      <div class="col-9">
-        <div class="row">
-          <div class="col-12">
-            <div class="navbar navbar-expand-lg p-left-0 m-bottom-30">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Add Speech</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Authors</a>
-                </li>
-                
-              </ul>
-              <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search speech" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
-            </div>
-
-            <!-- In order to show detail component 
-            <app-speech-detail></app-speech-detail>
-            -->
-            
-            
-          </div>
-        </div>
+      <div class="col-md-9">
+        <main>
+          <!-- here goese dynamic components -->
+          <app-speech-list></app-speech-list>
+        </main>
       </div>
     </div>
-  </div>  
+  </div>
 </div>
 
 
