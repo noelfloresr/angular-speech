@@ -27,6 +27,7 @@ import { SpeechFormComponent } from './speeches/speech-form/speech-form.componen
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
+    AngularFireDatabaseModule,
     NgbModule.forRoot()
   ],
   providers: [],

@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { SpeechService } from './shared-data/speech.service';
 
 @Component({
   selector: 'app-speeches',
   templateUrl: './speeches.component.html',
-  styleUrls: ['./speeches.component.sass']
+  styleUrls: ['./speeches.component.sass'],
+  providers: [SpeechService]
 })
 export class SpeechesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private speechService: SpeechService) { }
 
   ngOnInit() {
   }
