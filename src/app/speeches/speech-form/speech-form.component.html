@@ -2,15 +2,15 @@
 <h2>Add Speech</h2>
 <hr>
 
-<form #speechForm="ngForm" (ngSubmit)="onSubmit()">
+<form #speechForm="ngForm" (ngSubmit)="onSubmit(speechForm)">
   <div class="form-group">
     <input 
       type="text" 
       class="form-control" 
       placeholder="Title"
       required
-      [(ngModel)]="speech.title"
       name="title"
+      ngModel
       #name="ngModel"
     >
   </div>
@@ -19,8 +19,8 @@
       type="text" 
       class="form-control"
       placeholder="Image url"
-      [(ngModel)]="speech.imageUrl"
       name="imageUrl"
+      ngModel
       #imageUrl="ngModel" 
     >
   </div>
@@ -29,13 +29,13 @@
         <input 
           type="date" 
           class="form-control"
-          [(ngModel)]="speech.publishDate"
           name="publishDate"
+          ngModel
           #publishDate="ngModel"
         >
     </div>
     <div class="col">
-        <select class="form-control">
+        <select class="form-control" name="author" ngModel>
           <option selected>Author</option>
           <option>Author 1</option>
           <option>Author 2</option>
@@ -49,13 +49,20 @@
       type="text" 
       class="form-control" 
       placeholder="Keywords separated by comma"
-      [(ngModel)]="speech.keywords"
       name="keywords"
+      ngModel
       #keywords="ngModel"
     >
   </div>
   <div class="form-group">
-    <textarea class="form-control" rows="3" placeholder="Your speech"></textarea>
+    <textarea 
+      class="form-control" 
+      rows="3" 
+      placeholder="Your speech"
+      required
+      name="body"
+      ngModel
+    ></textarea>
   </div>
   <button type="submit" class="btn btn-primary" [disabled]=!speechForm.form.valid>Submit</button>
 </form>

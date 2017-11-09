@@ -10,6 +10,7 @@ import { SpeechService } from './speeches/shared-data/speech.service';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
+
 //Import firebase configuration
 import { environment } from '../environments/environment';
 

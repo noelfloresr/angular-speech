@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireList } from 'angularfire2/database';
+
+//shared data
 import { SpeechService } from '../shared-data/speech.service';
 import { Speech } from '../shared-data/speech.model';
 
@@ -9,11 +12,16 @@ import { Speech } from '../shared-data/speech.model';
 })
 export class SpeechListComponent implements OnInit {
   //Properties
-  speeches : Speech; //from speech model
+  speechList : Speech[]; //from speech model
 
   constructor(private speechService: SpeechService) { }
 
   ngOnInit() {
+  	this.getSpeechList();
+  }
+
+  getSpeechList(){
+  	this.speechList = this.speechService.getItemsList();
   }
 
 }
