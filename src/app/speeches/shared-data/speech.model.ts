@@ -1,8 +1,9 @@
 export class Speech {
-    $key             : string;
-    title            : string;
-    body             : string;
-    author           : string;
-    keywords         : string[];
-    publishedDate    : Date;
+    $key              : string;
+    title             : string;
+    imageUrl          : string;
+    body              : string;
+    author            : string;
+    keywords          : string[];
+    publishDate       : Date;
 }
