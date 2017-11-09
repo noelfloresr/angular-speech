@@ -9,7 +9,7 @@ import { Speech } from '../shared-data/speech.model';
 })
 export class SpeechFormComponent implements OnInit {
   //Properties
-  speeches : Speech; //from speech model
+  speech : Speech; //from speech model
 
   constructor(private speechService: SpeechService) { }
 

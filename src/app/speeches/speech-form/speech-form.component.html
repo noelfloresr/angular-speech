@@ -2,13 +2,37 @@
 <h2>Add Speech</h2>
 <hr>
 
-<form>
+<form #speechForm="ngForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Title">
+    <input 
+      type="text" 
+      class="form-control" 
+      placeholder="Title"
+      required
+      [(ngModel)]="speech.title"
+      name="title"
+      #name="ngModel"
+    >
+  </div>
+  <div class="form-group">
+    <input 
+      type="text" 
+      class="form-control"
+      placeholder="Image url"
+      [(ngModel)]="speech.imageUrl"
+      name="imageUrl"
+      #imageUrl="ngModel" 
+    >
   </div>
   <div class="row form-group">
     <div class="col">
-        <input type="date" class="form-control">
+        <input 
+          type="date" 
+          class="form-control"
+          [(ngModel)]="speech.publishDate"
+          name="publishDate"
+          #publishDate="ngModel"
+        >
     </div>
     <div class="col">
         <select class="form-control">
@@ -21,10 +45,17 @@
     </div>
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Keywords separated by comma">
+    <input 
+      type="text" 
+      class="form-control" 
+      placeholder="Keywords separated by comma"
+      [(ngModel)]="speech.keywords"
+      name="keywords"
+      #keywords="ngModel"
+    >
   </div>
   <div class="form-group">
     <textarea class="form-control" rows="3" placeholder="Your speech"></textarea>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" [disabled]=!speechForm.form.valid>Submit</button>
 </form>
