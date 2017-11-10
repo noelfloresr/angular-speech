@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireList } from 'angularfire2/database';
 
 //shared data
 import { SpeechService } from '../shared-data/speech.service';
@@ -21,7 +20,16 @@ export class SpeechListComponent implements OnInit {
   }
 
   getSpeechList(){
-  	this.speechList = this.speechService.getItemsList();
+    // this.speechList = this.speechService.getItemsList();
+    this.speechService.getItemsList()
+        .subscribe((result)=>{
+          this.speechList = [];
+          result.forEach(element => {
+            var data = element.payload.toJSON();
+            data["$key"] = element.key;
+            this.speechList.push(data as Speech);
+          });
+        })
   }
 
 }

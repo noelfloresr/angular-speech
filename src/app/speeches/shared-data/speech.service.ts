@@ -8,39 +8,42 @@ export class SpeechService {
   //Properties
   private basePath: string = '/speeches';
 
-  itemsList: AngularFireList<any>;
-  items: any[];
-  itemsObsrvable: Observable<any[]>;
-  itemObject: AngularFireObject<any>;
+  dbObject: AngularFireList<any>;
+  
+  //For a list of objects
+  items: Observable<any>;
+  //For a single object
+  item: Observable<any>;
+  
+
   selectedSpeech : Speech = new Speech();
 
   constructor(private db: AngularFireDatabase) { 
-  	this.itemsList = db.list('speeches'); //Define where to store data
+  	this.dbObject = db.list(this.basePath); //Define where to store data
   }
 
   getItemsList(){
-  	this.itemsList = this.db.list('speeches');
-  	console.log(this.itemsList);
-  	return this.itemsList;
+    this.items = this.dbObject.snapshotChanges();
+  	return this.items;
   }
 
   getItem(key: string){
   	const itemPath = `${this.basePath}/${key}`;
-  	this.itemObject = this.db.object(itemPath);
-  	return this.itemObject;
+    this.item = this.db.object(itemPath).valueChanges();
+  	return this.item;
   }
 
   createItem(item:Speech){
-  	this.itemsList.push(item);
+  	this.dbObject.push(item);
   }
 
   updateItem(key:string, value:any):void{
-  	this.itemsList.update(key, value)
+  	this.dbObject.update(key, value)
   		.catch(error => this.handleError(error));
   }
 
   deleteItem(key:string):void{
-  	this.itemsList.remove(key)
+  	this.dbObject.remove(key)
   		.catch(error => this.handleError(error));
   }
 
