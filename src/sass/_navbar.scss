@@ -1,34 +1,71 @@
 
-.navbar{
-	padding: 0;
-	.navbar-nav{
-		li.nav-item{
-			&.active{}
-			a.nav-link{
-				color: $sky-blue;
+nav{
+	&.mobile-nav{
+		button{
+			font-size: 20px;
+			background: none;
+			border: none;
+			color: white;
+			&:focus{
+				outline: 0;
+			}
+		}
+		.speech-navbar{
+			display: none;
+			position: absolute;
+			top: 0;
+			right: 0!important;
+			min-width: 200px;
+			left: auto!important;
+			background: $sky-blue;
+			z-index: 9999999;
+			border-radius: 2px;
+			padding: 0 5px;
+			li{
+				border-bottom: 1px dotted;
+				&:last-child{
+					border:none;
+				}
+				a{
+					text-align: center;
+				}
+			}
+		}
+		.btn-group.show{
+			button{
+				i{
+					&:before{
+						content: "\f00d";
+					}
+				}
+			}
+			.speech-navbar{
+				display: block;
+			}
+		}
+	}
+	.speech-navbar{
+		padding: 0;
+		li{
+			list-style: none;
+			padding-bottom: 5px;
+			a{
+				color: $font-color;
+				display: block;
+				width: 100%;
+				padding: 10px;
+				&:hover{
+					background-color: $sky-blue;
+					color: white;
+				}
+			}
+			&.active{
+				a{
+					background-color: $sky-blue;
+					color: white;
+				}
 			}
 		}
 	}
 }
 
-.speech-navbar{
-	padding: 0;
-	li{
-		list-style: none;
-		padding-bottom: 5px;
-		a{
-			color: $font-color;
-			display: block;
-			width: 100%;
-			padding: 10px;
-			&:hover{
-				background-color: $sky-blue;
-			}
-		}
-		&.active{
-			a{
-				background-color: $sky-blue;
-			}
-		}
-	}
-}

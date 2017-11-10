@@ -3,6 +3,10 @@ import { FormsModule }    from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+//Some bootstrap components
+import { CollapseModule } from 'ngx-bootstrap';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 //Services
 import { SpeechService } from './speeches/shared-data/speech.service';
 
@@ -21,6 +25,7 @@ import { SpeechDetailComponent } from './speeches/speech-detail/speech-detail.co
 import { SpeechFormComponent } from './speeches/speech-form/speech-form.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -29,7 +34,8 @@ import { AppRoutingModule } from './app-routing.module';
     SpeechesComponent,
     SpeechListComponent,
     SpeechDetailComponent,
-    SpeechFormComponent
+    SpeechFormComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,9 @@ import { AppRoutingModule } from './app-routing.module';
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
     AngularFireDatabaseModule,
     NgbModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    CollapseModule,
+    BsDropdownModule.forRoot()
   ],
   providers: [SpeechService], //in order to avoid add it into each component
   bootstrap: [AppComponent]
