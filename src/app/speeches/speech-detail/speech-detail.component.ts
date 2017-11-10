@@ -9,23 +9,22 @@ import { Speech } from '../shared-data/speech.model';
 
 
 @Component({
-  selector: 'app-speech-detail',
-  templateUrl: './speech-detail.component.html',
-  styleUrls: ['./speech-detail.component.sass']
+  selector      : 'app-speech-detail',
+  templateUrl   : './speech-detail.component.html',
+  styleUrls     : ['./speech-detail.component.sass']
 })
 export class SpeechDetailComponent implements OnInit {
-  //Properties
-  speech : Speech; //from speech model
-  id: string;
-  keywords: string[];
+  speech   : Speech;
+  id       : string;
+  keywords : string[];
 
   constructor(
-    private speechService: SpeechService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private location: Location,
+    private speechService  : SpeechService,
+    private route          : ActivatedRoute,
+    private router         : Router,
+    private location       : Location,
   ) { 
-    this.speech = this.initSpeechModel();
+    this.speech = this.initSpeechModel(); //initialize the object to empty
   }
 
   ngOnInit() {
@@ -33,6 +32,7 @@ export class SpeechDetailComponent implements OnInit {
   }
 
   getItem(){
+    //get the id from the url, required @angular/router
     this.id = this.route.snapshot.paramMap.get('id');
     this.speechService.getItem(this.id)
         .subscribe((result)=>{
@@ -44,12 +44,12 @@ export class SpeechDetailComponent implements OnInit {
   initSpeechModel() {
     return {
       $key: null,
-        title : '',
-        imageUrl: '',
-        body: '',
-        author: '',
-        keywords: [],
-        publishDate : new Date()
+      title : '',
+      imageUrl: '',
+      body: '',
+      author: '',
+      keywords: [],
+      publishDate : new Date()
     }
   }
 

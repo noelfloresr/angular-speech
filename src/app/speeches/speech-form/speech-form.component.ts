@@ -34,16 +34,15 @@ export class SpeechFormComponent implements OnInit {
   }
 
   getItem(){
-    let self = this;
     this.id = this.route.snapshot.paramMap.get('id');
 
     if(this.id && this.id.trim().length > 0) {
       this.speechService.getItem(this.id)
         .subscribe((result) => {
-          self.speech = result;
+          this.speech = result;
         });
     } else {
-      // self.speech = this.initSpeechModel();
+      this.speech = this.initSpeechModel();
     }
   }
 

@@ -11,7 +11,6 @@ import { Speech } from '../shared-data/speech.model';
   styleUrls: ['./speech-list.component.sass'],
 })
 export class SpeechListComponent implements OnInit {
-  //Properties
   speechList : Speech[]; //from speech model
 
   constructor(private speechService: SpeechService) { }
@@ -21,9 +20,8 @@ export class SpeechListComponent implements OnInit {
   }
 
   getSpeechList(){
-    // this.speechList = this.speechService.getItemsList();
     this.speechService.getItemsList()
-        .subscribe((result)=>{
+        .subscribe((result)=>{ 
           this.speechList = [];
           result.forEach(element => {
             var data = element.payload.toJSON();

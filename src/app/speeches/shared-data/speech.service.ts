@@ -1,18 +1,16 @@
 import { Injectable } from '@angular/core';
+//Import modules needed for Firebase communication
 import { AngularFireList, AngularFireObject, AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+
 import { Speech } from './speech.model';
 
 @Injectable()
 export class SpeechService {
-  //Properties
   private basePath: string = '/speeches';
 
   dbObject: AngularFireList<any>;
-  
-  //For a list of objects
   items: Observable<any>;
-  //For a single object
   item: Observable<any>;
   
 
@@ -23,6 +21,7 @@ export class SpeechService {
   }
 
   getItemsList(){
+    //it returns an observable object
     this.items = this.dbObject.snapshotChanges();
   	return this.items;
   }

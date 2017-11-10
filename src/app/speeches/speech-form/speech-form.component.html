@@ -7,6 +7,7 @@
 
 <form #speechForm="ngForm" (ngSubmit)="onSubmit(speechForm)">
   <div class="form-group">
+    <span>*</span>
     <input 
       type="text" 
       class="form-control" 
@@ -16,6 +17,7 @@
       #title="ngModel"
       [(ngModel)]="speech.title"
     >
+    <div class="alert alert-danger" *ngIf="title.touched && !title.valid">Title is required</div>
   </div>
   <div class="form-group">
     <input 
@@ -57,6 +59,7 @@
       [(ngModel)]="speech.keywords"
     >
   </div>
+  <span>*</span>
   <div class="form-group">
     <textarea 
       class="form-control" 
@@ -67,6 +70,7 @@
       #body="ngModel"
       [(ngModel)]="speech.body"
     ></textarea>
+    <div class="alert alert-danger" *ngIf="body.touched && !body.valid">Title is required</div>
   </div>
   <button type="submit" class="btn btn-primary" [disabled]=!speechForm.form.valid>Submit</button>
   <a routerLink="/list" class="btn btn-secondary">Cancel</a>
