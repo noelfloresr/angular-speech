@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CollapseModule } from 'ngx-bootstrap';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
+
 //Services
 import { SpeechService } from './speeches/shared-data/speech.service';
 
@@ -47,7 +48,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     CollapseModule,
     BsDropdownModule.forRoot()
   ],
-  providers: [SpeechService], //in order to avoid add it into each component
+  providers: [
+    SpeechService //To avoid add it into each component
+   ], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

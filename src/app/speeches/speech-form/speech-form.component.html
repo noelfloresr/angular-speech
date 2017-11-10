@@ -1,5 +1,7 @@
 
-<h2>Add Speech</h2>
+<div *ngIf="id; then editing else adding"></div>
+<ng-template #editing><h2>Edit Speech</h2></ng-template>
+<ng-template #adding><h2>Add Speech</h2></ng-template>
 <hr>
 
 <form #speechForm="ngForm" (ngSubmit)="onSubmit(speechForm)">
@@ -12,6 +14,7 @@
       name="title"
       ngModel
       #name="ngModel"
+      [(ngModel)]="speech.title"
     >
   </div>
   <div class="form-group">
@@ -21,7 +24,8 @@
       placeholder="Image url"
       name="imageUrl"
       ngModel
-      #imageUrl="ngModel" 
+      #imageUrl="ngModel"
+      [(ngModel)]="speech.imageUrl"
     >
   </div>
   <div class="row form-group">
@@ -32,10 +36,11 @@
           name="publishDate"
           ngModel
           #publishDate="ngModel"
+          [(ngModel)]="speech.publishDate"
         >
     </div>
     <div class="col">
-        <select class="form-control" name="author" ngModel>
+        <select class="form-control" name="author" ngModel [(ngModel)]="speech.author">
           <option selected>Author</option>
           <option>Author 1</option>
           <option>Author 2</option>
@@ -52,17 +57,20 @@
       name="keywords"
       ngModel
       #keywords="ngModel"
+      [(ngModel)]="speech.keywords"
     >
   </div>
   <div class="form-group">
     <textarea 
       class="form-control" 
-      rows="3" 
+      rows="6" 
       placeholder="Your speech"
       required
       name="body"
       ngModel
+      [(ngModel)]="speech.body"
     ></textarea>
   </div>
   <button type="submit" class="btn btn-primary" [disabled]=!speechForm.form.valid>Submit</button>
+  <a routerLink="/list" class="btn btn-secondary">Cancel</a>
 </form>

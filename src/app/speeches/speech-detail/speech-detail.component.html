@@ -18,8 +18,8 @@
     <div class="speech-actions d-block text-right">
       <h5>Actions</h5>
       <ul>
-        <li><a href="#" class="btn btn-info"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a></li>
-        <li><a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></li>
+        <li><a routerLink="/edit/{{id}}" class="btn btn-info"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a></li>
+        <li><a class="btn btn-danger" (click)="deleteItem()"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></li>
       </ul>  
     </div>
     

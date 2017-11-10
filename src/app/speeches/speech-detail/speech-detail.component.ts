@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 //For routing purposes
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { SpeechService } from '../shared-data/speech.service';
 import { Speech } from '../shared-data/speech.model';
+
 
 @Component({
   selector: 'app-speech-detail',
@@ -21,7 +22,8 @@ export class SpeechDetailComponent implements OnInit {
   constructor(
     private speechService: SpeechService,
     private route: ActivatedRoute,
-    private location: Location
+    private router: Router,
+    private location: Location,
   ) { }
 
   ngOnInit() {
@@ -35,6 +37,17 @@ export class SpeechDetailComponent implements OnInit {
           this.speech = result;
           this.keywords = result.keywords.split(",");
         });
+  }
+
+  deleteItem(){
+    if (confirm('Are you sure to delete this record ?') == true) {
+      this.speechService.deleteItem(this.id);
+      this.router.navigate(['/list']);
+    }
+  }
+
+  goBack():void{
+    this.location.back();
   }
 
 }

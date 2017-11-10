@@ -10,10 +10,12 @@
                 <button dropdownToggle type="button">
                     <i class="fa fa-bars" aria-hidden="true"></i></button>
                   <ul *dropdownMenu class="speech-navbar" role="menu">
-                    <li class="active">
+                    <li [routerLinkActive]="['active']">
                       <a routerLink="/list">List of speeches</a>
                     </li>
-                    <li><a routerLink="/add">Add speech</a></li>
+                    <li [routerLinkActive]="['active']">
+                      <a routerLink="/add">Add speech</a>
+                    </li>
                     <li><a href="#">List of authors</a></li>
                     <li><a href="#">Add an author</a></li>
                     <li><a href="#">Categories</a></li>
@@ -37,13 +39,21 @@
             <hr>
             <nav>
               <ul class="speech-navbar">
-                <li class="active">
+                <li [routerLinkActive]="['active']">
                   <a routerLink="/list">List of speeches</a>
                 </li>
-                <li><a routerLink="/add">Add speech</a></li>
-                <li><a href="#">List of authors</a></li>
-                <li><a href="#">Add an author</a></li>
-                <li><a href="#">Categories</a></li>
+                <li [routerLinkActive]="['active']">
+                  <a routerLink="/add">Add speech</a>
+                </li>
+                <li [routerLinkActive]="['active']">
+                  <a href="#">List of authors</a>
+                </li>
+                <li [routerLinkActive]="['active']">
+                  <a href="#">Add an author</a>
+                </li>
+                <li [routerLinkActive]="['active']">
+                  <a href="#">Categories</a>
+                </li>
               </ul>  
             </nav>
         </aside>
