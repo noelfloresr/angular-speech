@@ -24,7 +24,9 @@ export class SpeechDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private location: Location,
-  ) { }
+  ) { 
+    this.speech = this.initSpeechModel();
+  }
 
   ngOnInit() {
     this.getItem();
@@ -37,6 +39,18 @@ export class SpeechDetailComponent implements OnInit {
           this.speech = result;
           this.keywords = result.keywords.split(",");
         });
+  }
+
+  initSpeechModel() {
+    return {
+      $key: null,
+        title : '',
+        imageUrl: '',
+        body: '',
+        author: '',
+        keywords: [],
+        publishDate : new Date()
+    }
   }
 
   deleteItem(){

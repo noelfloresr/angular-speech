@@ -25,24 +25,42 @@ export class SpeechFormComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private location: Location,
-  ) { }
+  ) { 
+    this.speech = this.initSpeechModel();
+  }
 
   ngOnInit() {
     this.getItem();
   }
 
   getItem(){
+    let self = this;
     this.id = this.route.snapshot.paramMap.get('id');
-    if(this.id != ''){
+
+    if(this.id && this.id.trim().length > 0) {
       this.speechService.getItem(this.id)
-        .subscribe((result)=>{
-          this.speech = result;
+        .subscribe((result) => {
+          self.speech = result;
         });
+    } else {
+      // self.speech = this.initSpeechModel();
+    }
+  }
+
+  initSpeechModel() {
+    return {
+      $key: null,
+      title : '',
+      imageUrl: '',
+      body: '',
+      author: '',
+      keywords: [],
+      publishDate : new Date()
     }
   }
 
   onSubmit(speechForm: NgForm){
-    if(this.id == ''){
+    if(!this.id) {
     	this.speechService.createItem(speechForm.value);
     	speechForm.resetForm();
     }

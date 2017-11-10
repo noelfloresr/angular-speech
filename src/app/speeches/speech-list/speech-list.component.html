@@ -24,20 +24,20 @@
   <div class="col-md-6">
     <form>
         <div class="input-group mb-2 mb-sm-0">
-          <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Keyword">
+          <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Filter by title" name="keywords" [(ngModel)]="keywords" />
           <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></div>
         </div>
     </form>
   </div>
 </div>
 <div class="row">
-    <div *ngFor="let speech of speechList" class="col-md-6 col-lg-4 m-bottom-30">
+    <div *ngFor="let speech of speechList | filter:keywords" class="col-md-6 col-lg-4 m-bottom-30">
         <div class="card">
           <img class="card-img-top" [src]="speech.imageUrl" alt="Card image cap">
           <div class="card-body">
               <a routerLink="/detail/{{speech.$key}}"><h4 class="card-title">{{ speech.title }}</h4></a>
             <span class="speech-author"><strong>Author:</strong> {{speech.author}}</span>
-            <span class="speech-date"><strong>Published at: </strong>{{ speech.publishDate }}</span>
+            <span class="speech-date"><strong>Published at: </strong>{{ speech.publishDate | date:"MM/dd/yyyy" }}</span>
             <p class="card-text">{{ speech.body | slice:0:150 }}</p>
             <a routerLink="/detail/{{speech.$key}}" class="read-speech">Read speech...</a>
           </div>
