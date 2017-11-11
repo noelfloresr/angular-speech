@@ -11,9 +11,12 @@ import { Speech } from '../shared-data/speech.model';
   styleUrls: ['./speech-list.component.sass'],
 })
 export class SpeechListComponent implements OnInit {
-  speechList : Speech[]; //from speech model
+  speechList : Speech[]; 
+  authorList : string[];
 
-  constructor(private speechService: SpeechService) { }
+  constructor(private speechService: SpeechService) { 
+    this.authorList = [];
+   }
 
   ngOnInit() {
   	this.getSpeechList();
@@ -28,7 +31,17 @@ export class SpeechListComponent implements OnInit {
             data["$key"] = element.key;
             this.speechList.push(data as Speech);
           });
+          this.fillAuthorList()
         })
+  }
+
+  fillAuthorList(){
+    // this.speechList.map((x)=>{
+    //   this.authorList.push(x.author);
+    // });
+    var algo = this.speechList.filter((item, position, a)=>{
+      console.log(this.speechList.indexOf(item.author) === position);
+    })
   }
 
 }
