@@ -13,9 +13,12 @@ import { Speech } from '../shared-data/speech.model';
 export class SpeechListComponent implements OnInit {
   speechList : Speech[]; 
   authorList : any[];
+  author: string;
+  keywords: any;
 
   constructor(private speechService: SpeechService) { 
     this.authorList = [];
+    this.author = '';
    }
 
   ngOnInit() {

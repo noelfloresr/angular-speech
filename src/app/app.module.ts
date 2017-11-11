@@ -29,6 +29,7 @@ import { SpeechFormComponent } from './speeches/speech-form/speech-form.componen
 
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AuthorPipe } from './speeches/author.pipe';
 
 
 @NgModule({
@@ -39,12 +40,13 @@ import { NavbarComponent } from './navbar/navbar.component';
     SpeechDetailComponent,
     SpeechFormComponent,
     NavbarComponent,
-    FilterPipe
+    FilterPipe,
+    AuthorPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     NgbModule.forRoot(),
     AppRoutingModule,

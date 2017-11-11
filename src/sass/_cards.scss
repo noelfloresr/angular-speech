@@ -8,6 +8,10 @@
     img{
         // border-radius: 50%;
         z-index: 1;
+        height: 220px;
+        @media(max-width:767px){
+            height: auto;
+        }
     }
     .card-body{
         background: white;
