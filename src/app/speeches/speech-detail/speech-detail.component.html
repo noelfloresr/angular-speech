@@ -2,6 +2,7 @@
   <header>
     <h1 class="speech-title">{{speech.title}}</h1>
     <hr>
+    <img [src]="speech.imageUrl" alt="" class="img-fluid m-bottom-20">
     <span class="speech-author"><strong>Author:</strong> {{ speech.author }}</span>
     <span class="speech-date"><strong>Published at: </strong>{{ speech.publishDate | date:"MM/dd/yyyy" }}</span>
   </header>
@@ -15,13 +16,32 @@
       </li>
     </ul>
     
-    <div class="speech-actions d-block text-right">
-      <h5>Actions</h5>
-      <ul>
-        <li><a routerLink="/edit/{{id}}" class="btn btn-info"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a></li>
-        <li><a class="btn btn-danger" (click)="deleteItem()"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></li>
-      </ul>  
+    <div class="row m-top-20">
+      <div class="col-sm-6">
+          <div class="speech-actions d-block">
+              <h5>Actions</h5>
+              <ul>
+                <li><a routerLink="/edit/{{id}}" class="btn btn-info"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a></li>
+                <li><a class="btn btn-danger" (click)="deleteItem()"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></li>
+              </ul>  
+            </div>
+      </div>
+      <div class="col-sm-6 text-right">
+          <h5>Share speech</h5>
+          <ul class="social-media">
+            <li>
+              <a href="https://www.facebook.com/sharer.php?u=http://test.com{{currentUrl}}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/intent/tweet?text={{speech.title}}&url=http://test.com{{currentUrl}}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </li>
+            <li>
+              <a href="mailto:?subject=Please%20check%20my%20speech.&body=http://test.com{{currentUrl}}"><i class="fa fa-envelope-o" aria-hidden="true"></i>            </a>
+            </li>
+          </ul>
+      </div>
     </div>
+    
     
   </footer>
 </article>

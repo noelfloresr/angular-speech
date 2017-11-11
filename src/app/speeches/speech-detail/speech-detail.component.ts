@@ -14,9 +14,10 @@ import { Speech } from '../shared-data/speech.model';
   styleUrls     : ['./speech-detail.component.sass']
 })
 export class SpeechDetailComponent implements OnInit {
-  speech   : Speech;
-  id       : string;
-  keywords : string[];
+  speech     : Speech;
+  id         : string;
+  keywords   : string[];
+  currentUrl : string;
 
   constructor(
     private speechService  : SpeechService,
@@ -34,6 +35,7 @@ export class SpeechDetailComponent implements OnInit {
   getItem(){
     //get the id from the url, required @angular/router
     this.id = this.route.snapshot.paramMap.get('id');
+    this.currentUrl = this.router.url;
     this.speechService.getItem(this.id)
         .subscribe((result)=>{
           this.speech = result;
