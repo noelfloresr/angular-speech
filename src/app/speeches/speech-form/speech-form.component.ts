@@ -60,8 +60,12 @@ export class SpeechFormComponent implements OnInit {
 
   onSubmit(speechForm: NgForm){
     if(!this.id) {
-    	this.speechService.createItem(speechForm.value);
-    	speechForm.resetForm();
+      if(speechForm.valid){
+        alert('Speech added!');
+        this.speechService.createItem(speechForm.value);
+        speechForm.resetForm();
+      }
+    	
     }
     else{
       this.speechService.updateItem(this.id, speechForm.value);

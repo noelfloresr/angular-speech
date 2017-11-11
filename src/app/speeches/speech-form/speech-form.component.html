@@ -4,7 +4,6 @@
 <ng-template #adding><h2>Add Speech</h2></ng-template>
 <hr>
 
-
 <form #speechForm="ngForm" (ngSubmit)="onSubmit(speechForm)">
   <div class="form-group">
     <span>*</span>
@@ -39,13 +38,20 @@
           [(ngModel)]="speech.publishDate"
         >
     </div>
+    *
     <div class="col">
-        <select class="form-control" name="author" #author="ngModel" [(ngModel)]="speech.author">
-          <option selected>Author</option>
-          <option>Author 1</option>
-          <option>Author 2</option>
-          <option>Author 3</option>
-          <option>Author 4</option>
+        <select 
+          class="form-control" 
+          name="author" 
+          #author="ngModel" 
+          [(ngModel)]="speech.author"
+          required
+          >
+            <option selected>Author</option>
+            <option>Author 1</option>
+            <option>Author 2</option>
+            <option>Author 3</option>
+            <option>Author 4</option>
         </select>
     </div>
   </div>

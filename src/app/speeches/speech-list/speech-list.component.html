@@ -11,12 +11,9 @@
   <div class="col-md-6">
     <form>
         <div class="form-group">
-          <select class="form-control">
-            <option selected>Select an author</option>
-            <option>Author 1</option>
-            <option>Author 2</option>
-            <option>Author 3</option>
-            <option>Author 4</option>
+          <select class="form-control" name="author" [(ngModel)]="author">
+            <option value="" selected>Choose an author to filter</option>
+            <option *ngFor="let author of authorList">{{author}}</option>
           </select>
         </div>
     </form>
@@ -24,14 +21,21 @@
   <div class="col-md-6">
     <form>
         <div class="input-group mb-2 mb-sm-0">
-          <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Filter by title" name="keywords" [(ngModel)]="keywords" />
+          <input 
+            type="text" 
+            class="form-control" 
+            id="inlineFormInputGroup" 
+            placeholder="Filter by title" 
+            name="keywords" 
+            [(ngModel)]="keywords" 
+          />
           <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></div>
         </div>
     </form>
   </div>
 </div>
 <div class="row">
-    <div *ngFor="let speech of speechList | filter:keywords" class="col-md-6 col-lg-4 m-bottom-30">
+    <div *ngFor="let speech of speechList | filter:keywords | author:author" class="col-md-6 col-lg-4 m-bottom-30">
         <div class="card">
           <img class="card-img-top" [src]="speech.imageUrl" alt="Card image cap">
           <div class="card-body">

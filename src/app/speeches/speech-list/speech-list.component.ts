@@ -12,7 +12,7 @@ import { Speech } from '../shared-data/speech.model';
 })
 export class SpeechListComponent implements OnInit {
   speechList : Speech[]; 
-  authorList : string[];
+  authorList : any[];
 
   constructor(private speechService: SpeechService) { 
     this.authorList = [];
@@ -36,12 +36,8 @@ export class SpeechListComponent implements OnInit {
   }
 
   fillAuthorList(){
-    // this.speechList.map((x)=>{
-    //   this.authorList.push(x.author);
-    // });
-    var algo = this.speechList.filter((item, position, a)=>{
-      console.log(this.speechList.indexOf(item.author) === position);
-    })
+    this.authorList = this.speechList.map(x => x.author)
+        .filter((value, index, self)=>self.indexOf(value) === index);
   }
 
 }
