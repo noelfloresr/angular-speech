@@ -7,6 +7,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CollapseModule } from 'ngx-bootstrap';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
+//Pipes
+import { FilterPipe } from './speeches/filter.pipe';
 
 //Services
 import { SpeechService } from './speeches/shared-data/speech.service';
@@ -36,7 +38,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     SpeechListComponent,
     SpeechDetailComponent,
     SpeechFormComponent,
-    NavbarComponent
+    NavbarComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
